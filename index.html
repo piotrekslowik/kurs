@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="AI × Design — Kurs dla designerów">
 <meta property="og:description" content="Interaktywny kurs AI dla UX i product designerów. 52 moduły, 6 sekcji, na Twoim własnym projekcie. 100% bezpłatny.">
-<meta property="og:image" content="https://piotrekslowik.github.io/kurs/og-image.png">
+<meta property="og:image" content="https://piotrekslowik.github.io/kurs/og-image.png" id="og-image-meta">
+<meta property="og:image:alt" content="AI × Design — free course for designers">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -342,8 +343,7 @@ nav {
 .hero-claims {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  background: var(--border);
+  gap: 0;
   border-radius: 20px;
   overflow: hidden;
   animation: fadeUp 0.7s 0.3s ease both;
@@ -351,13 +351,16 @@ nav {
 
 .hero-claim {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.25rem;
-  padding: 1.5rem 1.75rem;
-  background: var(--ink2);
+  padding: 1.6rem 2rem;
+  background: transparent;
+  border-bottom: 1px solid var(--border);
   position: relative;
   transition: background 0.2s;
 }
+
+.hero-claim:last-child { border-bottom: none; }
 
 .hero-claim::before {
   content: '';
@@ -368,32 +371,31 @@ nav {
   transition: background 0.2s;
 }
 
-.hero-claim:hover { background: rgba(22,20,16,0.7); }
+.hero-claim:hover { background: rgba(46,204,138,0.03); }
 .hero-claim:hover::before { background: var(--green); }
 
 .claim-icon {
-  font-size: 22px;
+  font-size: 26px;
   flex-shrink: 0;
-  margin-top: 2px;
+  opacity: 0.85;
 }
 
 .claim-body {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
 }
 
 .claim-title {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--cream);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 .claim-text {
-  font-size: 11px;
-  line-height: 1.65;
-  color: var(--muted);
+  display: none;
 }
 
 /* ─── STATS ROW ─── */
@@ -1620,8 +1622,10 @@ button.sec-header:focus-visible {
   .pulse { width: 5px; height: 5px; }
 
   .hero { overflow: hidden; }
-  .hero-content { padding: 1.5rem 1rem; box-sizing: border-box; width: 100%; }
-  .hero-left { width: 100%; min-width: 0; box-sizing: border-box; }
+  .hero-content { padding: 1.5rem 1rem; box-sizing: border-box; width: 100%; overflow: hidden; }
+  .hero-left { width: 100%; min-width: 0; box-sizing: border-box; max-width: 100%; overflow: hidden; padding-right: 0; }
+  .hero-title { font-size: clamp(1.6rem, 8vw, 2.2rem) !important; }
+  .hero-free { flex-wrap: wrap; }
 
   .author-block { gap: 8px; max-width: 100%; }
   .author-avatar { width: 32px; height: 32px; }
@@ -1739,55 +1743,6 @@ body.lang-en .marquee-en{display:flex}
         <span data-lang="en">100% free</span>
       </div>
     </div>
-
-    <div class="hero-claims" aria-label="Cechy kursu">
-      <div class="hero-claim">
-        <div class="claim-icon" aria-hidden="true">⚡</div>
-        <div class="claim-body">
-          <div class="claim-title" data-lang="pl">Nauka przez praktykę</div>
-          <div class="claim-title" data-lang="en">Learning by doing</div>
-          <div class="claim-text" data-lang="pl">Żadnych wykładów do odsłuchania. Claude prowadzi Cię przez materiał, czeka na odpowiedź i przechodzi dalej dopiero gdy wykonasz zadanie.</div>
-          <div class="claim-text" data-lang="en">No lectures to sit through. Claude guides you through the material, waits for your response, and only moves on once you've completed the exercise.</div>
-        </div>
-      </div>
-      <div class="hero-claim">
-        <div class="claim-icon" aria-hidden="true">🎯</div>
-        <div class="claim-body">
-          <div class="claim-title" data-lang="pl">Wiedza od razu w użyciu</div>
-          <div class="claim-title" data-lang="en">Knowledge you use immediately</div>
-          <div class="claim-text" data-lang="pl">Każdy moduł to porcja teorii i natychmiastowe ćwiczenie bezpośrednio w narzędziu — na Twoim własnym projekcie, nie na przykładach z podręcznika.</div>
-          <div class="claim-text" data-lang="en">Each module is a dose of theory followed by an immediate exercise in the tool — on your own project, not on textbook examples.</div>
-        </div>
-      </div>
-      <div class="hero-claim">
-        <div class="claim-icon" aria-hidden="true">📓</div>
-        <div class="claim-body">
-          <div class="claim-title" data-lang="pl">Automatyczna notatka po każdym kroku</div>
-          <div class="claim-title" data-lang="en">Automatic note after every step</div>
-          <div class="claim-text" data-lang="pl">Po każdym module Claude zapisuje skondensowane podsumowanie do Notion. Wychodzisz z kursem i gotową bazą wiedzy jednocześnie.</div>
-          <div class="claim-text" data-lang="en">After each module Claude saves a condensed summary to Notion. You finish the course with a ready-to-use knowledge base at the same time.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat-cell">
-      <div class="stat-num"><span>52</span></div>
-      <div class="stat-label" data-lang="pl">Moduły</div>
-      <div class="stat-label" data-lang="en">Modules</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num"><span>6</span></div>
-      <div class="stat-label" data-lang="pl">Sekcji</div>
-      <div class="stat-label" data-lang="en">Sections</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num"><span>100%</span></div>
-      <div class="stat-label" data-lang="pl">Konwersacyjnie</div>
-      <div class="stat-label" data-lang="en">Conversational</div>
-    </div>
-  </div>
 </section>
 
 <!-- MARQUEE -->
@@ -2295,15 +2250,22 @@ body.lang-en .marquee-en{display:flex}
         <div class="start-step-content">
           <div class="start-step-title" data-lang="pl">Napisz jedno zdanie i zacznij</div>
           <div class="start-step-title" data-lang="en">Type one sentence and begin</div>
-          <div class="start-step-body" data-lang="pl">Otwórz nową rozmowę w Claude.ai i wpisz dowolne słowo akcyjne. Skill uruchomi się automatycznie.</div>
-          <div class="start-step-body" data-lang="en">Open a new conversation in Claude.ai and type any action word. The skill will launch automatically.</div>
+          <div class="start-step-body" data-lang="pl">Otwórz nową rozmowę w Claude i wpisz <strong>/ai-x-design-pl zaczynamy</strong> — kurs uruchomi się automatycznie.</div>
+          <div class="start-step-body" data-lang="en">Open a new conversation in Claude and type <strong>/ai-x-design-en let's go</strong> — the course will launch automatically.</div>
           <div class="trigger-examples">
-            <div class="trigger-label" data-lang="pl">Triggery które działają:</div>
-            <div class="trigger-label" data-lang="en">Triggers that work:</div>
+            <div class="trigger-label" data-lang="pl">Komenda aktywująca:</div>
+            <div class="trigger-label" data-lang="en">Activation command:</div>
+            <div class="trigger-chips" data-lang="pl">
+              <span class="trigger-chip">/ai-x-design-pl</span>
+            </div>
+            <div class="trigger-chips" data-lang="en">
+              <span class="trigger-chip">/ai-x-design-en</span>
+            </div>
+            <div class="trigger-label" data-lang="pl" style="margin-top:0.5rem">…albo po prostu napisz:</div>
+            <div class="trigger-label" data-lang="en" style="margin-top:0.5rem">…or just type:</div>
             <div class="trigger-chips" data-lang="pl">
               <span class="trigger-chip">zaczynamy</span>
               <span class="trigger-chip">gotowy</span>
-              <span class="trigger-chip">startujemy</span>
               <span class="trigger-chip">lecimy</span>
               <span class="trigger-chip">go</span>
             </div>
@@ -2311,7 +2273,6 @@ body.lang-en .marquee-en{display:flex}
               <span class="trigger-chip">let's go</span>
               <span class="trigger-chip">ready</span>
               <span class="trigger-chip">start</span>
-              <span class="trigger-chip">begin</span>
               <span class="trigger-chip">go</span>
             </div>
           </div>
