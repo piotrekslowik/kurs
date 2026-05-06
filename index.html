@@ -138,7 +138,7 @@ nav {
   grid-template-columns: 1fr 420px;
   gap: 4rem;
   align-items: center;
-  padding: 5rem 4rem;
+  padding: 2.5rem 4rem 4rem;
   min-width: 0;
 }
 
@@ -1674,13 +1674,7 @@ body.lang-en .marquee-en{display:flex}
 <!-- STICKY NAV -->
 <nav class="sticky-nav" id="sticky-nav" aria-label="Nawigacja strony">
   <a href="#" class="sticky-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">AI <em>×</em> Design</a>
-  <div class="sticky-links">
-    <a href="#curriculum" class="sticky-link" data-lang="pl">Program</a>
-    <a href="#curriculum" class="sticky-link" data-lang="en">Curriculum</a>
-    <a href="#start" class="sticky-link" data-lang="pl">Jak zacząć</a>
-    <a href="#start" class="sticky-link" data-lang="en">Get started</a>
-  </div>
-  <div class="lang-toggle" role="group" aria-label="Wybór języka">
+<div class="lang-toggle" role="group" aria-label="Wybór języka">
     <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')" aria-pressed="true">PL</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
   </div>
